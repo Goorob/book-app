@@ -12,7 +12,7 @@ app.use(express.urlencoded({extended:true}));
 
 app.set('view engine', 'ejs')
 
-app.get('/hello', (req,res) => {
+app.get('/', (req,res) => {
     res.render('pages/index');
   });
 
