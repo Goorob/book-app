@@ -8,19 +8,22 @@
   <form action="/"method="get">
 <label >
     <span>
-        search by author name
+        
     </span>
-    <input type="text" name="author">
+    <input type="text" name="search"><br>
 </label>
 <label >
-    <span> search by title</span>
-    <input type="text" name="title">
+    <input type="radio" name="type" value="title">Title <br>
+    <input type="radio" name="type" value="author">Author<br>
+
 </label>
-
-
-
+</form>
+<form action="/books" method="get">
+<button >search</button>
 
 </form>
+
+
 
 </body>
 </html>
