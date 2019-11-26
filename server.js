@@ -22,30 +22,6 @@ app.get('/searches', (req, res) => {
 // });
 
 
-
-
-// app.get('/books', booksHandler);
-
-// function booksHandler(req, res) {
-//     getBooks(req.query.data)
-//         .then(booksData => res.status(200).json(booksData));
-// };
-
-// function getBooks(data) {
-//     let url = 'https://www.googleapis.com/books/v1/volumes?q=dan';
-
-//     return superagent.get(url)
-//         .then(data => {
-//             // res.json(data.body)
-//             // console.log(data);
-//             let books = data.body;
-//             return books.items.map(book => {
-//                 return new Book(book);
-//             })
-            
-//         })}
-
-
 // function Book(data) {
 //     this.title = data.volumeInfo.title;
 //     this.author = data.volumeInfo.authors[0]  ;
@@ -55,32 +31,29 @@ app.get('/searches', (req, res) => {
 // }
 
 app.post('/searches', (req, res) => {
-    let url = 'https://www.googleapis.com/books/v1/volumes?q=Dan Brown';
+    let url = 'https://www.googleapis.com/books/v1/volumes?q=';
 
+    if (req.body.search === 'title') {
+        url = url + req.body.text
+    }
+    else if (req.body.search === 'author') {
+        url = url + req.body.text;
+        // console.log(url)
+    }
     superagent.get(url)
         .then(data => {
-            // res.json(data.body)
             // console.log(data);
-            let books=data.body.items ;
-            res.render('pages/show', {books:books})
+            let books = data.body.items;
+            res.render('pages/show', { books: books })
             // return books.items.map(book=>{
             //     // return new Book(book);
-            //     res.render('/show' , {books:book})
+
             // })
-            
+
         });
 });
 
 
-//   app.get('/show', (req,res) => {
-//     let url = 'https://www.googleapis.com/books/v1/volumes?q=';
-//     superagent.get(url)
-//       .then( data => {
-//         //   res.json(data.body)
-//         //   console.log(data);
-//         res.render('pages/show', {show:data.body.items});
-// return new Book (books);
-//       });
-//   });
+
 
 app.listen(PORT, () => console.log('Up on port', PORT));
