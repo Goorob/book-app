@@ -1,35 +1,125 @@
-#main {
-    background-color: black;
+
+
+  
+
+  @media (max-width: 800px)  {
+    body {
+      background: rgba(0, 0, 0, 0.884);
+      align-content: center;
+     
+
+    }
+  
+    section {
+        background-color: black;
+        margin-left: auto;
+        margin-right: auto;
+        width: 500px;
+        height: 600px;
+        color: white;
+        
+    }
+    h1{
+        font-size: 30px;
+       
+    }
+    
+    div{
+        background-color: rgba(128, 128, 128, 0.562);
+        margin-left: auto;
+        margin-right: auto;
+        width: 500px;
+        height: 520px;
+        color: white;
+        text-align: center;
+        padding-top:5px ;
+        font-size: 15px;
+    }
+    
+    form{
+        text-align: center;
+        background-color: rgba(180, 177, 177, 0.932);
+        height: 510px;
+        
+    }
+    #enter{
+        width: 400px;
+        height: 50px;
+        margin: 30px ;
+        border-radius: 5px;   
+    }
+
+    .pick{
+        width: 400px;
+        height: 50px;
+        background-color: rgba(230, 223, 223, 0.767);
+        margin-bottom: 30px ;
+        text-align: left;
+        border-radius: 5px; 
+        color: black;
+    }
+    span {
+        padding: 20pxs 50px 0 20px ;
+    }
+    button{
+        width: 400px;
+        height: 50px;
+        margin: 30px ;
+        text-align: center;
+        border-radius: 5px; 
+        background-color: black;  
+        color: white;
+        
+    }
+
+
+    #gray{
+        text-align: center;
+        background-color: rgba(180, 177, 177, 0.932);
+    }
+    #title{
+        color: rgb(61, 58, 58);
+        font-size:30px ;
+        font-weight: bold;
+    }
+
+    #author{
+        color: rgb(117, 114, 114);
+        font-size:20px ;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+
+     
+     
+      #desc {
+        height: 100px;
+        overflow: scroll;
+        margin-bottom: 50px;
+        text-align: left;
+    }
+
+ul{
+    align-items: center;
+    align-content: center;
+    list-style-type: none;
+    background-color: rgba(219, 212, 212, 0.932);
+    width: 380px;
+    height: 480px;
     margin-left: auto;
     margin-right: auto;
-    width: 500px;
-    height: 600px;
-    /* box-sizing: border-box; */
-    color: white;
+    color: black;
+    margin-bottom: 50px;
+   
+}
+li{
+    padding: 10px;
 }
 
-h2 {
-    background-color: rgba(128, 128, 128, 0.562);
-    margin-left: auto;
-    margin-right: auto;
-    width: 500px;
-    height: 40px;
-    /* box-sizing: border-box; */
-    color: white;
-    text-align: center;
-    padding-top:10px ;
-    font-size: 20px;
+img{
+    object-fit: contain;
+        width: 200px;
+        height: 230px;
 }
-
-form{
-    text-align: center;
-    background-color: rgba(180, 177, 177, 0.932);
-
-}
-#enter{
-    width: 400px;
-    height: 50px;
-    margin: 30px ;
-    text-align: center;
-
-}
+  }

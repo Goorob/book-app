@@ -1,28 +1,37 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
+
 
 <head>
     <title>
-        Template
+        show
     </title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/modules.css">
+
 </head>
 
 <body>
-    <main>
-        <ul>
+    <section>
 
+        <h1>Best Books!</h1>
+        <div>
+            <h2>Search Results</h2>
+            
             <% books.forEach((book)=> { %>
-                <p>The titles</p>
-            <li><%= book.volumeInfo.title %></li>
-            <p>The authors</p>
-            <li><%= book.volumeInfo.authors %></li>
-            <p>The descriptions</p>
-            <li><%= book.volumeInfo.description %></li>
-            <p>The imageLinks</p>
-            <li><img src=<%= book.volumeInfo.imageLinks.thumbnail %></li>
-            <% }); %>
-        </ul>
-    </main>
-</body> 
+                <div id="gray">
+                <ul>
 
-</html>
+                        <li><img src=<%= book.volumeInfo.imageLinks.thumbnail %></li> 
+                   
+                    <li id="title"><%= book.volumeInfo.title %></li>
+                   
+                    <li id="author"><%= book.volumeInfo.authors %></li>
+                  
+                    <li id="desc"><%= book.volumeInfo.description %></li>
+                    <li ><%= book.volumeInfo.industryIdentifiers[0].type %></li>
+                   
+                    <% }); %> </ul> </div> </section>
+                            </body> </html>

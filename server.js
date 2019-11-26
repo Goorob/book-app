@@ -15,20 +15,18 @@ app.set('view engine', 'ejs')
 app.get('/searches', (req, res) => {
     res.render('pages/index');
 });
+app.get('*', (req, res) => res.status(404).send('This route does not exist'));
+// const errorHandler = (err, res) => {
+//     res.status(500).render('pages/error',{error: 'Uh Oh'});
+//   };
 
-
-// app.get('/show', (req, res) => {
-//     res.render('pages/searches/show' ,{books:req.books});
-// });
-
-
-// function Book(data) {
-//     this.title = data.volumeInfo.title;
-//     this.author = data.volumeInfo.authors[0]  ;
-//     this.image_url = data.volumeInfo.imageLinks.thumbnail ;
-//     this.description = data.volumeInfo.description  ;
-//     this.type= data.volumeInfo.industryIdentifiers.type;
-// }
+function Book(data) {
+    this.title = data.volumeInfo.title;
+    this.author = data.volumeInfo.authors[0]  ;
+    this.image_url = data.volumeInfo.imageLinks.thumbnail ;
+    this.description = data.volumeInfo.description  ;
+    this.type= data.volumeInfo.industryIdentifiers.type;
+}
 
 app.post('/searches', (req, res) => {
     let url = 'https://www.googleapis.com/books/v1/volumes?q=';
@@ -42,16 +40,13 @@ app.post('/searches', (req, res) => {
     }
     superagent.get(url)
         .then(data => {
-            // console.log(data);
+            
             let books = data.body.items;
             res.render('pages/show', { books: books })
-            // return books.items.map(book=>{
-            //     // return new Book(book);
-
-            // })
-
-        });
-});
+            
+        })
+        // .catch(err => errorHandler(err, res));
+    });
 
 
 
