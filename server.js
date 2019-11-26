@@ -15,15 +15,10 @@ app.set('view engine', 'ejs')
 app.get('/searches', (req, res) => {
     res.render('pages/index');
 });
-
-const errorHandler = (err, response) => {
-    console.log(err);
-    if (response) response.status(500).render('pages/error');
-  };
-
-
-
-
+app.get('*', (req, res) => res.status(404).send('This route does not exist'));
+// const errorHandler = (err, res) => {
+//     res.status(500).render('pages/error',{error: 'Uh Oh'});
+//   };
 
 function Book(data) {
     this.title = data.volumeInfo.title;
@@ -50,8 +45,8 @@ app.post('/searches', (req, res) => {
             res.render('pages/show', { books: books })
             
         })
-        .catch(err => errorHandler(err, res));
-});
+        // .catch(err => errorHandler(err, res));
+    });
 
 
 
