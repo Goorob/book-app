@@ -11,7 +11,7 @@
     <main>
         <ul>
 
-            <% show.forEach((book)=> { %>
+            <% books.forEach((book)=> { %>
                 <p>The titles</p>
             <li><%= book.volumeInfo.title %></li>
             <p>The authors</p>
@@ -19,7 +19,7 @@
             <p>The descriptions</p>
             <li><%= book.volumeInfo.description %></li>
             <p>The imageLinks</p>
-            <li><%= book.volumeInfo.imageLinks.thumbnail %></li>
+            <li><img src=<%= book.volumeInfo.imageLinks.thumbnail %></li>
             <% }); %>
         </ul>
     </main>

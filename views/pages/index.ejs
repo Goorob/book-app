@@ -5,21 +5,31 @@
     <link rel="stylesheet" href="styles/base.css">
 </head>
 <body>
-  <form action="/"method="get">
-<label >
-    <span>
+<section id="main">
+
+    <h1>Best Books!</h1>
+    <section id="gray">
         
-    </span>
-    <input type="text" name="search"><br>
-</label>
-<label >
-    <input type="radio" name="type" value="title">Title <br>
-    <input type="radio" name="type" value="author">Author<br>
-
-</label>
-<button >search</button>
-
-</form>
+        <h2>Search by Title or Author</h2>
+        <form action="/searches"method="post">
+            <label >
+                <span>
+                    
+                </span>
+                <input id="enter" type="text" name="text" placeholder="Enter a title or author"><br>
+            </label>
+            <label >
+                Title
+                <input type="radio" name="search" value="title"> <br>
+                Author
+                <input type="radio" name="search" value="author"><br>
+                
+            </label>
+            <button >search the Google Books API</button>
+            
+        </form>
+    </section>
+</section>
 
 
 
