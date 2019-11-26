@@ -22,51 +22,51 @@ app.get('/', (req, res) => {
 
 
 
-app.get('/books', booksHandler);
+// app.get('/books', booksHandler);
 
-function booksHandler(req, res) {
-    getBooks(req.query.data)
-        .then(booksData => res.status(200).json(booksData));
-};
+// function booksHandler(req, res) {
+//     getBooks(req.query.data)
+//         .then(booksData => res.status(200).json(booksData));
+// };
 
-function getBooks(data) {
-    let url = 'https://www.googleapis.com/books/v1/volumes?q=dan';
-
-    return superagent.get(url)
-        .then(data => {
-            // res.json(data.body)
-            // console.log(data);
-            let books = data.body;
-            return books.items.map(book => {
-                return new Book(book);
-            })
-        })}
-
-
-function Book(data) {
-    this.id= data.id;
-    this.image_url = data.volumeInfo.imageLinks.thumbnail;
-    this.title = data.volumeInfo.title;
-    this.author = data.volumeInfo.authors;
-    this.description = data.volumeInfo.description
-}
-
-// app.get('/books', (req, res) => {
+// function getBooks(data) {
 //     let url = 'https://www.googleapis.com/books/v1/volumes?q=dan';
 
-//     superagent.get(url)
+//     return superagent.get(url)
 //         .then(data => {
 //             // res.json(data.body)
 //             // console.log(data);
-//             let books=data.body ;
-//             return books.items.map(book=>{
+//             let books = data.body;
+//             return books.items.map(book => {
 //                 return new Book(book);
 //             })
-//         //   , { books: data.body.items });
+            
+//         })}
 
-//         });
-//         res.render('pages/books')
-// });
+
+function Book(data) {
+    this.title = data.volumeInfo.title;
+    this.author = data.volumeInfo.authors[0]  ;
+    this.image_url = data.volumeInfo.imageLinks.thumbnail ;
+    this.description = data.volumeInfo.description  ;
+    this.type= data.volumeInfo.industryIdentifiers.type;
+}
+
+app.get('/searches', (req, res) => {
+    let url = 'https://www.googleapis.com/books/v1/volumes?q=dan';
+
+    superagent.get(url)
+        .then(data => {
+            // res.json(data.body)
+            // console.log(data);
+            let books=data.body ;
+            return books.items.map(book=>{
+                return new Book(book);
+            })
+            
+        });
+        res.render('pages/searches/show' , {books:book})
+});
 
 
 //   app.get('/show', (req,res) => {
