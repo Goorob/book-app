@@ -1,37 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Document</title>
+    <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/modules.css">
 </head>
-<body>
-<section id="main">
 
-    <h1>Best Books!</h1>
-    <section id="gray">
+<body>
+    <section>
+
+        <h1>Best Books!</h1>
         
-        <h2>Search by Title or Author</h2>
-        <form action="/searches"method="post">
-            <label >
-                <span>
-                    
-                </span>
-                <input id="enter" type="text" name="text" placeholder="Enter a title or author"><br>
-            </label>
-            <label >
-                Title
-                <input type="radio" name="search" value="title"> <br>
-                Author
-                <input type="radio" name="search" value="author"><br>
-                
-            </label>
-            <button >search the Google Books API</button>
-            
-        </form>
+            <div>
+
+                <h2>Search by Title or Author</h2>
+                <form action="/searches" method="post">
+                    <label>
+
+                        <input id="enter" type="text" name="text" placeholder="Enter a title or author"><br>
+                    </label>
+                    <div class="pick">
+
+                        <label>
+                             <span>Title</span>
+                            <input class="radio" type="radio" name="search" value="title"> <br>
+                        </label>
+                    </div>
+                    <div class="pick">
+
+                        <label>
+                            Author
+                            <input class="radio" type="radio" name="search" value="author"><br>
+                        </label>
+                    </div>
+
+
+                    <button>Search the Google Books API</button>
+
+                </form>
+            </div>
+       
     </section>
-</section>
 
 
 
 </body>
+
 </html>
