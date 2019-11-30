@@ -2,7 +2,7 @@
 <html>
 
 
-<head>
+ <head>
     <title>
         show
     </title>
@@ -11,27 +11,51 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
 
-</head>
+ </head>
 
-<body>
+  <body>
     <section>
 
         <h1>Best Books!</h1>
         <div>
             <h2>Search Results</h2>
-            
+
+
             <% books.forEach((book)=> { %>
-                <div id="gray">
+            <div id="gray">
                 <ul>
 
-                        <li><img src=<%= book.volumeInfo.imageLinks.thumbnail %></li> 
-                   
-                    <li id="title"><%= book.volumeInfo.title %></li>
-                   
+                    <li><img src=<%= book.volumeInfo.imageLinks.thumbnail %></li> <li
+                            id="title"><%= book.volumeInfo.title %></li>
+
                     <li id="author"><%= book.volumeInfo.authors %></li>
-                  
+
                     <li id="desc"><%= book.volumeInfo.description %></li>
-                    <li ><%= book.volumeInfo.industryIdentifiers[0].type %></li>
-                   
-                    <% }); %> </ul> </div> </section>
-                            </body> </html>
+                    
+                    <li><%= book.volumeInfo.industryIdentifiers[0].type %></li>
+                    <li>
+                        
+                        <form action="/selectFor" method="post">
+                            <input type="hidden" name="img" value= "<%= book.volumeInfo.imageLinks.thumbnail %>" >
+                            <input type="hidden" name="title" value= "<%= book.volumeInfo.title %>" >
+                            <input type="hidden" name="author" value= "<%= book.volumeInfo.authors %>"  >
+                            <input type="hidden" name="description" value= "<%= book.volumeInfo.description %>" >
+                            <input type="hidden" name="type" value="<%= book.volumeInfo.industryIdentifiers[0].type %>" >
+                            <button>Select</button>
+                            
+                        </form>
+
+
+                    </li> 
+                </ul>
+            </div>
+            <% }); %>
+        </div>
+    </section>
+
+
+
+
+  </body>
+
+</html>
